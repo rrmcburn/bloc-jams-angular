@@ -37,7 +37,11 @@
          $rootScope.$apply(function() {
              SongPlayer.currentTime = currentBuzzObject.getTime();
          });
-     });    
+     });
+            
+        currentBuzzObject.bind('ended', function(event) {
+ 			SongPlayer.next();
+ 		});
         
         SongPlayer.currentSong = song;
  };
@@ -162,6 +166,8 @@
          playSong(song);
      }
  };
+        
+        
         
         /**
  * @function setCurrentTime
