@@ -88,7 +88,15 @@
  */
  SongPlayer.currentTime = null;
         
+ 
+// @desc sets default volume and can also changes volume 
+//        * @type {Number}
+//        */
         
+        SongPlayer.volume = 40;
+
+
+        /**
         
 // * @function SongPlayer.play
 // * @desc public method that plays a song file from an object when a song is not the current song or current song is paused  
@@ -165,6 +173,18 @@
          currentBuzzObject.setTime(time);
         }
 };
+        
+      /**
+      * @function setVolume
+      * @desc sets the volume with the volume seek bar
+      * @param {Number} volume
+      */
+      SongPlayer.setVolume = function(volume) {
+          if (currentBuzzObject) {
+              currentBuzzObject.setVolume(volume);
+          }
+          SongPlayer.volume = volume
+      };
         
      return SongPlayer;
  }
